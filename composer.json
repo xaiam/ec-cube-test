@@ -1,12 +1,7 @@
 {
-    "name": "ec-cube/ec-cube",
-    "description": "EC-CUBE EC open platform.",
     "type": "project",
     "homepage": "https://www.ec-cube.net/",
-    "license": [
-       "GPL-2.0-only",
-       "proprietary"
-    ],
+    "license": "proprietary",
     "support": {
         "issues": "https://github.com/EC-CUBE/ec-cube/issues"
     },
