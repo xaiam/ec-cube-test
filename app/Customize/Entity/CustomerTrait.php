@@ -13,13 +13,12 @@ trait CustomerTrait
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    public $maker_name;
+    private $maker_name;
 
     /**
-     * @ORM/ManyToOne(targetEntity="\Entity\CustomerRank", inversedBy="customers")
+     * @ORM\ManyToOne(targetEntity="CustomerRank", inversedBy="customers")
      */
     private $customerRanks;
-
 
     public function getMaker_name(): ?string
     {
