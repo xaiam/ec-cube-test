@@ -909,6 +909,7 @@ admin.customer.customer_management: 会員管理
 admin.customer.customer_list: 会員一覧
 admin.customer.customer_registration: 会員登録
 admin.customer.customer_address_registration: お届け先登録
+admin.customer.customer_channel: チャンネル（ランク）
 
 # ラベル/メッセージ
 admin.customer.customer_id: 会員ID
