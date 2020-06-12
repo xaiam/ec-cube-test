@@ -22,22 +22,11 @@ class CustomerRank
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="CustomerTrait", mappedBy="customerRanks")
+     * @ORM\ManyToOne(targetEntity="Customize\Entity\CustomerChannel", inversedBy="customerRanks")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $customers;
+    private $customerChannel;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="CustomerChannel", inversedBy="customerRanks")
-     */
-    private $customerChannels;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->customers = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -55,4 +44,18 @@ class CustomerRank
 
         return $this;
     }
+
+    public function getCustomerChannel(): ?CustomerChannel
+    {
+        return $this->customerChannel;
+    }
+
+    public function setCustomerChannel(?CustomerChannel $customerChannel): self
+    {
+        $this->customerChannel = $customerChannel;
+
+        return $this;
+    }
+
+
 }

@@ -16,9 +16,10 @@ trait CustomerTrait
     private $maker_name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CustomerRank", inversedBy="customers")
+     * @var CustomerRank | null
+     * @ORM\ManyToOne(targetEntity="\Customize\Entity\CustomerRank")
      */
-    private $customerRanks;
+    private $customerRank;
 
     public function getMaker_name(): ?string
     {
@@ -31,4 +32,23 @@ trait CustomerTrait
 
         return $this;
     }
+
+    /**
+     * @return CustomerRank | null
+     */
+    public function getCustomerRank(): ?CustomerRank
+    {
+        return $this->customerRank;
+    }
+
+    /**
+     * @param mixed $customerRank
+     */
+    public function setCustomerRank(?CustomerRank $customerRank): self
+    {
+        $this->customerRank = $customerRank;
+        return $this;
+    }
+
+
 }
