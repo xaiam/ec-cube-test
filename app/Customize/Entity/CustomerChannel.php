@@ -19,9 +19,18 @@ class CustomerChannel
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(type="smallint", nullable=true, options={"unsigned":true, "default": 0})
+     */
+    private $sortNo;
 
     /**
      * @ORM\OneToMany(targetEntity="Customize\Entity\CustomerRank", mappedBy="customerChannel")
@@ -31,6 +40,9 @@ class CustomerChannel
     public function __construct()
     {
         $this->customerRanks = new ArrayCollection();
+
+        //sortNoに初期値を与えたい
+        $this->sortNo = $this->id;
     }
 
 
@@ -78,6 +90,18 @@ class CustomerChannel
                 $customerRank->setCustomerChannel(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSortNo(): ?int
+    {
+        return $this->sortNo;
+    }
+
+    public function setSortNo(?int $sortNo): self
+    {
+        $this->sortNo = $sortNo;
 
         return $this;
     }
